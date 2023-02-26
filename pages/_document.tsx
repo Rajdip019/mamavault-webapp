@@ -3,6 +3,12 @@ import { Html, Head, Main, NextScript } from 'next/document'
 export default function Document() {
   return (
     <Html lang="en">
+      <title>Mama vault</title>
+      <link rel="icon"
+        href="/logo.png" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
       <Head />
       <body>
         <Main />
@@ -10,21 +16,5 @@ export default function Document() {
       </body>
     </Html>
   )
-}
-import { Html, Head, Main, NextScript } from 'next/document'
-
-export default function Document() {
-    return (
-        <Html lang="en">
-            <title>Next.js Instraller</title>
-            <link rel="icon" 
-href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/3e1f6e5c-5238-4ecc-a0d5-f2deff1e4fb4/dcge67r-261eb5af-66f8-4786-94ac-bd535876fd45.png" />
-            <Head />
-            <body>
-                <Main />
-                <NextScript />
-            </body>
-        </Html>
-    )
 }
 
