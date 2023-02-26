@@ -25,7 +25,8 @@ const SharedPage = () => {
         if (shared_id) {
             const docRef = doc(db, "shared_docs", shared_id as string);
             const docSnap = await getDoc(docRef);
-
+            console.log(docSnap.data());
+            
             if (docSnap.exists()) {
                 setUserData(docSnap.data() as ISharedDoc);
                 const docs: IDocuments[] = await docSnap.data().documents;
@@ -36,7 +37,10 @@ const SharedPage = () => {
                         await updateDoc(updateRef, {
                             "views": shreadLinkSnap.data().views + 1
                         })
+                        console.log("Done");
+                        
                     }
+
                 } catch (e) {
                     console.log("Error", e);
                 }
@@ -61,6 +65,8 @@ const SharedPage = () => {
                         }
                     })
                 })
+                console.log("Done2");
+                
                 setDateFilterDocs(_date_filterd_docs);
                 setIsLoading(false);
             } else {
