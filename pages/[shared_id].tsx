@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebaseConfig';
 import { CircularProgress } from '@mui/material';
 import Profile from '@/components/Profile';
@@ -13,7 +13,7 @@ import { getTime } from 'date-fns';
 const SharedPage = () => {
 
     const router = useRouter()
-    const { shared_id } = router.query;
+    const { shared_id, uid } = router.query;
 
     const [userData, setUserData] = React.useState<ISharedDoc>();
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
@@ -28,7 +28,18 @@ const SharedPage = () => {
 
             if (docSnap.exists()) {
                 setUserData(docSnap.data() as ISharedDoc);
-                const docs: IDocuments[] = await docSnap.data().documents
+                const docs: IDocuments[] = await docSnap.data().documents;
+                try {
+                    const updateRef = doc(db, "users", uid as string, "shared_links", shared_id as string);
+                    const shreadLinkSnap = await getDoc(updateRef)
+                    if(shreadLinkSnap.exists()){
+                        await updateDoc(updateRef, {
+                            "views": shreadLinkSnap.data().views + 1
+                        })
+                    }
+                } catch (e) {
+                    console.log("Error", e);
+                }
                 const _date_filterd_docs: { time: number, document: IDocuments[] }[] = []
                 const dates = docs.map((data: IDocuments) => { return getTime(new Date(data.timeline_time)) })
                 dates.map((date) => {
@@ -60,7 +71,6 @@ const SharedPage = () => {
         }
 
     }, [router]);
-
 
     React.useEffect(() => {
         if (router.isReady) {

@@ -12,18 +12,20 @@ interface Props {
 const Profile: React.FC<Props> = ({ userData }) => {
 
     const pregnancyStartingDate = userData.account_created && new Date(userData.account_created?.seconds * 1000);
+    
     const today = new Date();
     const daysGap = pregnancyStartingDate && differenceInDays(today, pregnancyStartingDate);
     const weeksGap = daysGap && daysToWeeks(daysGap);
     const progressBar = daysGap && (daysGap / 280) * 100
-
+    console.log(today);
+    
     return (
         <div className='mt-10 sticky top-10'>
             <h1 className='text-2xl font-semibold mb-5'>Mom's Details</h1>
             <div className=' sm:flex text-center sm:text-left items-center p-6 rounded-2xl pr-5 border-2 border-[#6061F6] bg-[#6060f61e]'>
                 {/* Profile Info */}
                 <div className=" flex justify-center mb-5 sm:mb-0 ">
-                    <img src={userData.image} alt="" className=' rounded-full w-28 mr-5 ring-2 ring-[#6061F6]' />
+                    <img src={userData.image} alt="" className=' rounded-full w-28 h-28 mr-5 ring-2 ring-[#6061F6]' />
                 </div>
                 <div>
                     {/* Profile Data */}
