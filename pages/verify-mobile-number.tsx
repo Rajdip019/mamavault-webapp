@@ -30,11 +30,11 @@ const VerifyMobileNumber = () => {
         <div className='flex justify-center items-center h-screen bg-normal'>
             {isMobile ? (
                 <div>
-                    <h1 className='text-4xl'>Mobile number verified!</h1>
+                    <h1 className='text-4xl text-center'>Mobile number verified!</h1>
                 </div>
             ) : (
                 <div>
-                    <h1 className='text-4xl'>Link Expired!</h1>
+                    <h1 className='text-4xl text-center'>Link Expired!</h1>
                 </div>
             )}
         </div>
