@@ -70,7 +70,7 @@ const SharedPage = () => {
             }
         }
 
-    }, [router]);
+    }, [router.isReady]);
 
     React.useEffect(() => {
         if (router.isReady) {
