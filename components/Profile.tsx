@@ -20,7 +20,7 @@ const Profile: React.FC<Props> = ({ userData }) => {
     console.log(today);
     
     return (
-        <div className='mt-10 sticky top-10'>
+        <div className='pt-10 sticky top-10'>
             <h1 className='text-2xl font-semibold mb-5'>Mom's Details</h1>
             <div className=' sm:flex text-center sm:text-left items-center p-6 rounded-2xl pr-5 border-2 border-[#6061F6] bg-[#6060f61e]'>
                 {/* Profile Info */}

@@ -113,7 +113,7 @@ const SharedPage = () => {
                                 <div className='lg:col-span-3'>
                                     {userData && <Profile userData={userData?.userData } />}
                                 </div>
-                                <div className=' col-span-1 lg:col-span-5'>
+                                <div className=' col-span-1 lg:col-span-5 pb-10'>
                                     {userData?.documents?.length !== 0 ? (
                                         <>
                                             <div className='mt-10 flex sm:flex-row-reverse flex-col-reverse justify-between items-center'>
@@ -121,7 +121,7 @@ const SharedPage = () => {
                                                 </div>
                                                 <div className=' md:flex items-center hidden'>
                                                     {/* <FilterAltIcon /> */}
-                                                    <p className=' text-xl font-medium'>Change view</p>
+                                                    <p className=' text-2xl font-bold'>All Shared Documents</p>
                                                 </div>
                                             </div>
                                             {true ? (
