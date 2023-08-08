@@ -11,9 +11,9 @@ export interface IUser{
     blood_group : string,
     date_of_pregnancy ? : Timestamp,
     complications_description ? : string,
-    "medicines " ? : string[],
-    "diseases " ? : string[],
-    "allegies " ? : string[],
+    medicines? : string[],
+    diseases ? : string[],
+    allegies ? : string[],
     account_created : Timestamp;
 }
 
